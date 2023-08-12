@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human Language to Animal Language Translator</title>
+<style>
+html{
+    overflow: hidden;
+}
+ body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #202020;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+#moreLanguages {
+
+   
+    color: #bdbdbd;
+
+  }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #202020;
+}
+
+.translator {
+  padding: 20px 20px 20px 20px;
+  border-radius: 10px;
+  background-color: rgb(15, 15, 15);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  color: rgb(214, 212, 212);
+}
+
+#inputBox,
+#resultBox {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #9f9f9f;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#translateButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #3e3e3e;
+  color: rgb(199, 199, 199);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#animalMenu {
+  width: 100%;
+  padding: 10px;
+  background-color: #cfcfcf;
+  border: 1px solid #9c9c9c;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+@media (min-width: 1000px) {
+  .container {
+    flex-direction: row;
+    width: 100%;
+  }
+
+.translator {
+    margin: 20px;
+    width: 400px;
+  }
+
+  #inputBox,
+  #resultBox {
+    font-size: 16px;
+  }
+
+  #translateButton {
+  padding: 10px 20px;
+  background-color: #181818;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#translateButton:hover {
+  background-color: rgb(32, 33, 56);
+  transform: translateY(-1px);
+}
+
+  #animalMenu {
+    font-size: 14px;
+  }
+}
+.more {
+    font-style: none;
+    text-decoration: none;
+    color: aliceblue;
+    background-color: #3e3e3e;
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="translator">
+      <h1>Human Language to Extended Language Translator</h1>
+      <select id="animalMenu">
+        <option value="cat">Cat</option>
+        <option value="dog">Dog</option>
+        <option value="cow">Cow</option>
+        <option value="jotaro">Kujo Jotaro</option>
+        <option value="dio">Brando Dio</option>
+        <option value="Helicopter">Attack Helicopter</option>
+        <option value="mcqueen">Lightning mcqueen</option>
+        <option value="lato">Lato-Lato</option>
+        <option value="tank">Russian war tank</option>
+        <option value="gun">toy gun</option>
+        <option value="shampoo">Shampoo</option>
+        <option value="AK-47">AK-47</option>
+      </select>
+      <br>
+      <input type="text" id="inputBox" placeholder="Enter text here" onkeydown="if(event.keyCode==13) translateButton.click()">
+      <button id="translateButton">Translate</button>
+      <input type="text" id="resultBox" placeholder="Translation result" readonly>
+   
+    </div>
+      
+   
+  </div>
+
+  <div id="footer">
+    <div>Created by John Carlo Monte</div>
+    <div id="moreLanguages">
+        <div>Want to add more languages?      <a href="https://forms.gle/WuZiGio5UcPXkaS28" class="more">Add more please..</a></div>
+      </div> 
+  </div>
+
+
+ 
+  <script>
+    const translateButton = document.getElementById("translateButton");
+const inputBox = document.getElementById("inputBox");
+const resultBox = document.getElementById("resultBox");
+const animalMenu = document.getElementById("animalMenu");
+
+translateButton.addEventListener("click", () => {
+  const animal = animalMenu.value;
+  const inputText = inputBox.value;
+  let translatedText = "";
+
+  const words = inputText.split(/\b/);
+
+  if (animal === "cat") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "meow";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "dog") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "arf";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "cow") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "moo";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "fish") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "blop";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "jotaro") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "ORA";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "dio") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "MUDA";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "Helicopter") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "CHOP";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "mcqueen") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "kachow";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "lato") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "Taka";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "tank") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "BEWMM";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "gun") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "Pew";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "shampoo") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "sqwewxch";
+      } else {
+        return word;
+      }
+    }).join("");
+  } else if (animal === "AK-47") {
+    translatedText = words.map(word => {
+      if (word.match(/^\w+$/)) {
+        return "brrt";
+      } else {
+        return word;
+      }
+    }).join("");
+  }
+
+  resultBox.value = translatedText;
+});
+
+  </script>
+</body>
+</html>
+
